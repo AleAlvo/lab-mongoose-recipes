@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
     unique: true,
@@ -26,7 +26,7 @@ const recipeSchema = new Schema({
     type: String,
     default: "https://images.media-allrecipes.com/images/75131.jpg",
   },
-  durantion: {
+  duration: {
     type: Number,
     min: 0,
   },

@@ -17,8 +17,18 @@ const manageRecipes = async () => {
 
     // Before adding any recipes to the database, let's remove all existing ones
     await Recipe.deleteMany();
+    let lasagnaRecipe = await Recipe.create({ title: 'Lasagna', cuisine: 'Italian'})
+    console.log(lasagnaRecipe.title);
+    await Recipe.insertMany(data);
+    let allRecipes = await Recipe.find();
+    allRecipes.forEach((element) => console.log(element.title));
+    await Recipe.findOneAndUpdate( {title: 'Rigatoni alla Genovese'}, {duration: 100}, console.log('Rigatoni: duration updated!') );
+    await Recipe.deleteOne({ title: 'Carrot Cake' }, console.log('Carrot Cake deleted'));
+/*     if (await Recipe.findOne({ title: 'Carrot Cake' }) === {}) console.log('Carrot Cake successfully deleted')
+    else console.log('nope'); */
 
-    // Run your code here, after you have insured that the connection was made
+    mongoose.disconnect();
+
   } catch (error) {
     console.log(error);
   }
